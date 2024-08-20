@@ -1,28 +1,78 @@
 <nav class="bg-gray-800 p-4">
   <ul class="flex space-x-4">
-    <li>
+    <!-- Sort Methods Dropdown -->
+    <li class="relative">
       <a
-        routerLink="/bubble-sort-visualizer"
+        (click)="toggleDropdown('sort')"
         class="text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"
       >
-        BubbleSort
+        Sort Methods
       </a>
+
+      <!-- Dropdown menu for Sort Methods -->
+      <ul
+        *ngIf="dropdownStates.sort"
+        class="absolute bg-gray-700 text-white mt-2 py-2 w-48 rounded shadow-lg z-10"
+      >
+        <li>
+          <a
+            routerLink="/bubble-sort-visualizer"
+            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
+          >
+            Bubble Sort
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/insertion-sort-visualizer"
+            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
+          >
+            Insertion Sort
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/select-sort-visualizer"
+            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
+          >
+            Select Sort
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/merge-sort-visualizer"
+            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
+          >
+            Merge Sort
+          </a>
+        </li>
+      </ul>
     </li>
-    <li>
+
+    <!-- Search Algorithms Dropdown -->
+    <li class="relative">
       <a
-        routerLink="/insertion-sort-visualizer"
+        (click)="toggleDropdown('search')"
         class="text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"
       >
-        InsertionSort
+        Search Algorithms
       </a>
-    </li>
-    <li>
-      <a
-        routerLink="/select-sort-visualizer"
-        class="text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"
+
+      <!-- Dropdown menu for Search Algorithms -->
+      <ul
+        *ngIf="dropdownStates.search"
+        class="absolute bg-gray-700 text-white mt-2 py-2 w-48 rounded shadow-lg z-10"
       >
-        SelectSort
-      </a>
+        <li>
+          <a
+            routerLink="/linear-search-visualizer"
+            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
+          >
+            Linear Search
+          </a>
+        </li>
+        <!-- Add more search algorithms here if needed -->
+      </ul>
     </li>
   </ul>
 </nav>
