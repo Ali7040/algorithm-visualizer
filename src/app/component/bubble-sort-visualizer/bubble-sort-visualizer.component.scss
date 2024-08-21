@@ -1,0 +1,14 @@
+.array-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.array-bar {
+  width: 20px;
+  margin: 0 2px;
+  background-color: #69b3a2;
+}
+
+.active-bar {
+  background-color: #ff6347; // Change to any color you'd like for the active bar
+}

@@ -4,6 +4,7 @@ import { InsertionSortVisualizerComponent } from './component/insertion-sort-vis
 import { SelectSortVisualizerComponent } from './component/select-sort-visualizer/select-sort-visualizer.component';
 import { MergeSortVisualizerComponent } from './component/merge-sort-visualizer/merge-sort-visualizer.component';
 import { LinearSearchVisualizerComponent } from './component/linear-search-visualizer/linear-search-visualizer.component';
+import { BinarySearchVisualizerComponent } from './component/binary-search-visualizer/binary-search-visualizer.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'linear-search-visualizer',
     component: LinearSearchVisualizerComponent,
+  },
+  {
+    path: 'binary-search-visualizer',
+    component: BinarySearchVisualizerComponent,
   },
 ];
