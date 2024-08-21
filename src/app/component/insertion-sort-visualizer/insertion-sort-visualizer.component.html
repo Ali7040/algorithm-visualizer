@@ -1,0 +1,22 @@
+<div class="array-container">
+  <div
+    *ngFor="let bar of array; let i = index"
+    class="array-bar"
+    [style.height]="bar + 'px'"
+    [ngClass]="{ 'active-bar': activeIndexes.has(i) }"
+  ></div>
+</div>
+<div class="m-1">
+  <button
+    (click)="InsertionSort()"
+    class="border rounded-lg border-gray-700 p-1 m-1"
+  >
+    Start Sorting
+  </button>
+  <button
+    (click)="resetArray()"
+    class="border rounded-lg border-gray-700 p-1 m-1"
+  >
+    Generate New Array
+  </button>
+</div>
