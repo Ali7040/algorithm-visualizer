@@ -8,6 +8,10 @@ import { BinarySearchVisualizerComponent } from './component/binary-search-visua
 
 export const routes: Routes = [
   {
+    path: '',
+    component: BubbleSortVisualizerComponent,
+  },
+  {
     path: 'bubble-sort-visualizer',
     component: BubbleSortVisualizerComponent,
   },
