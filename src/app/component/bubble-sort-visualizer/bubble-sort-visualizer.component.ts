@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 export class BubbleSortVisualizerComponent {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
+  isSorting: boolean = false; // Flag to track sorting state
 
   ngOnInit() {
     this.resetArray();
@@ -21,24 +22,29 @@ export class BubbleSortVisualizerComponent {
       { length: 100 },
       () => Math.floor(Math.random() * 400) + 20
     );
+    this.isSorting = false; // Reset sorting flag
   }
 
   async bubbleSort(): Promise<void> {
-    // Bubble Sort Algorithm
-    for (let i = 0; i < this.array.length; i++) {
-      for (let j = 0; j < this.array.length - i - 1; j++) {
-        this.setActiveIndexes([j, j + 1]); // Set active indexes for color change
+    this.isSorting = true; // Start sorting
+    for (let i = 0; i < this.array.length && this.isSorting; i++) {
+      for (let j = 0; j < this.array.length - i - 1 && this.isSorting; j++) {
+        this.setActiveIndexes([j, j + 1]);
         if (this.array[j] > this.array[j + 1]) {
-          // Swap logic
           [this.array[j], this.array[j + 1]] = [
             this.array[j + 1],
             this.array[j],
           ];
           await this.sleep(150);
         }
-        this.clearActiveIndexes(); // Clear active indexes after comparison
+        this.clearActiveIndexes();
       }
     }
+    this.isSorting = false; // Stop sorting when done
+  }
+
+  stopSorting() {
+    this.isSorting = false;
   }
 
   setActiveIndexes(indexes: number[]) {
