@@ -1,3 +1,8 @@
+<div class="flex flex-col items-center justify-center m-5">
+  <span class="animate-slide-in">selection Sort</span>
+  <hr class="border-b border-gray-700 w-full ml-2" />
+</div>
+
 <div class="array-container">
   <div
     *ngFor="let bar of array; let i = index"
@@ -10,6 +15,7 @@
   <button
     (click)="selectSort()"
     class="border rounded-lg border-gray-700 p-1 m-1"
+    [disabled]="isSorting"
   >
     Start Sorting
   </button>
@@ -18,5 +24,12 @@
     class="border rounded-lg border-gray-700 p-1 m-1"
   >
     Generate New Array
+  </button>
+  <button
+    (click)="stopSorting()"
+    class="border rounded-lg border-gray-700 p-1 m-1"
+    [disabled]="!isSorting"
+  >
+    Stop Sorting
   </button>
 </div>
