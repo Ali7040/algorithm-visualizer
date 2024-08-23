@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class InsertionSortVisualizerComponent implements OnInit {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
+  isSorting: boolean = false;
 
   ngOnInit() {
     this.resetArray();
@@ -21,9 +22,11 @@ export class InsertionSortVisualizerComponent implements OnInit {
       { length: 100 },
       () => Math.floor(Math.random() * 400) + 20
     );
+    this.isSorting = false;
   }
 
   async InsertionSort(): Promise<void> {
+    this.isSorting = true; // Start sorting
     // Insertion Sort Algorithm
     for (let i = 1; i < this.array.length; i++) {
       let key = this.array[i];
@@ -39,10 +42,14 @@ export class InsertionSortVisualizerComponent implements OnInit {
       await this.sleep(50);
       this.clearActiveIndexes(); // Clear active indexes after insertion
     }
+    this.isSorting = false;
   }
 
   setActiveIndexes(indexes: number[]) {
     this.activeIndexes = new Set(indexes);
+  }
+  stopSorting() {
+    this.isSorting = false;
   }
 
   clearActiveIndexes() {

@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 export class MergeSortVisualizerComponent {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
+  isSorting = false; // Single flag to track sorting state
 
   ngOnInit() {
     this.resetArray();
@@ -21,6 +22,7 @@ export class MergeSortVisualizerComponent {
       { length: 100 },
       () => Math.floor(Math.random() * 400) + 20
     );
+    this.isSorting = false; // Reset sorting flag
   }
 
   async mergeSort(
@@ -28,6 +30,7 @@ export class MergeSortVisualizerComponent {
     start = 0,
     end = this.array.length - 1
   ): Promise<number[]> {
+    if (!this.isSorting) return []; // Exit if sorting is not active
     if (start == end) {
       return [array[start]];
     }
@@ -44,11 +47,15 @@ export class MergeSortVisualizerComponent {
     right: number[],
     start: number
   ): Promise<number[]> {
+    if (!this.isSorting) return []; // Exit if sorting is not active
+
     let result: number[] = [];
     let leftIndex = 0,
       rightIndex = 0;
 
     while (leftIndex < left.length && rightIndex < right.length) {
+      if (!this.isSorting) return []; // Exit if sorting is not active
+
       this.setActiveIndexes([
         start + leftIndex,
         start + rightIndex + left.length,
@@ -68,6 +75,8 @@ export class MergeSortVisualizerComponent {
     }
 
     while (leftIndex < left.length) {
+      if (!this.isSorting) return []; // Exit if sorting is not active
+
       result.push(left[leftIndex]);
       this.array[start + result.length - 1] = left[leftIndex];
       leftIndex++;
@@ -75,6 +84,8 @@ export class MergeSortVisualizerComponent {
     }
 
     while (rightIndex < right.length) {
+      if (!this.isSorting) return []; // Exit if sorting is not active
+
       result.push(right[rightIndex]);
       this.array[start + result.length - 1] = right[rightIndex];
       rightIndex++;
@@ -85,7 +96,13 @@ export class MergeSortVisualizerComponent {
   }
 
   async startSorting() {
+    this.isSorting = true; // Start sorting
     await this.mergeSort();
+    this.isSorting = false; // Set sorting to false when done
+  }
+
+  stopSorting() {
+    this.isSorting = false; // Stop sorting
   }
 
   setActiveIndexes(indexes: number[]) {
