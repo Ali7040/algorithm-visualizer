@@ -1,0 +1,31 @@
+.array-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.array-bar {
+  width: 20px;
+  margin: 0 2px;
+  background-color: #69b3a2;
+}
+
+.active-bar {
+  background-color: #ff6347; // Change to any color you'd like for the active bar
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out forwards;
+  display: inline-block;
+  white-space: nowrap;
+}
