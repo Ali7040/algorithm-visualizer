@@ -3,12 +3,13 @@
   <hr class="border-b border-gray-700 w-full ml-2" />
 </div>
 <div class="array-container">
+  @for(bar of array;track bar;let i = $index){
   <div
-    *ngFor="let bar of array; let i = index"
     class="array-bar"
     [style.height]="bar + 'px'"
     [ngClass]="{ 'active-bar': activeIndexes.has(i) }"
   ></div>
+  }
 </div>
 <div class="m-1">
   <button

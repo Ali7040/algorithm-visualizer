@@ -4,8 +4,8 @@
 </div>
 
 <div class="array-container">
+  @for(bar of array;track bar;let i = $index){
   <div
-    *ngFor="let bar of array; let i = index"
     class="array-bar"
     [style.height]="bar + 'px'"
     [ngClass]="{
@@ -14,6 +14,7 @@
       'found-bar': foundIndex === i
     }"
   ></div>
+  }
 </div>
 
 <div class="m-1">
@@ -30,10 +31,11 @@
     Generate New Array
   </button>
 </div>
-
-<div *ngIf="targetValue !== null" class="m-2 text-black flex flex-col">
+@if(targetValue !== null){
+<div>
   <span class="font-bold font-mono"
     >Searching for value: {{ targetValue }}</span
   >
   <span class="font-bold font-mono"> found Index: {{ foundIndex }} </span>
 </div>
+}
