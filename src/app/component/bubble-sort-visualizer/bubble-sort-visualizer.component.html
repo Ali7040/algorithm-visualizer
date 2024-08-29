@@ -1,7 +1,9 @@
 <div class="background-container">
   <div class="content-container">
     <div class="flex flex-col items-center justify-center m-5">
-      <span class="animate-slide-in">Bubble Sort</span>
+      <span class="animate-slide-in font-bold font-sans text-white"
+        >Bubble Sort</span
+      >
       <hr class="border-b border-gray-700 w-full ml-2" />
     </div>
     <div class="array-container">
@@ -16,19 +18,19 @@
     <div class="m-1">
       <button
         (click)="bubbleSort()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
+        class="border rounded-lg text-gray-200 font-bold border-gray-300 p-1 m-1 cursor-pointer"
       >
         Start Sorting
       </button>
       <button
         (click)="resetArray()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
+        class="border rounded-lg text-gray-200 font-bold border-gray-300 p-1 m-1 cursor-pointer"
       >
         Generate New Array
       </button>
       <button
         (click)="stopSorting()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
+        class="border rounded-lg text-gray-200 font-bold border-gray-300 p-1 m-1 cursor-pointer"
         [disabled]="!isSorting"
       >
         Stop Sorting
