@@ -6,6 +6,7 @@ import { MergeSortVisualizerComponent } from './component/merge-sort-visualizer/
 import { LinearSearchVisualizerComponent } from './component/linear-search-visualizer/linear-search-visualizer.component';
 import { BinarySearchVisualizerComponent } from './component/binary-search-visualizer/binary-search-visualizer.component';
 import { QuickSortVisualizerComponent } from './component/quick-sort-visualizer/quick-sort-visualizer.component';
+import { HeapSortVisualizerComponent } from './component/heap-sort-visualizer/heap-sort-visualizer.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path: 'quick-sort-visualizer',
     component: QuickSortVisualizerComponent,
+  },
+  {
+    path: 'heap-sort-visualizer',
+    component: HeapSortVisualizerComponent,
   },
   {
     path: 'linear-search-visualizer',
