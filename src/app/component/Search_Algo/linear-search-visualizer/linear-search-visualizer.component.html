@@ -1,0 +1,45 @@
+<div class="background-container">
+  <div class="content-container">
+    <div class="flex flex-col items-center justify-center m-5">
+      <span class="animate-slide-in">linear search</span>
+      <hr class="border-b border-gray-700 w-full ml-2" />
+    </div>
+
+    <div class="array-container">
+      @for(bar of array;track bar;let i = $index){
+      <div
+        class="array-bar"
+        [style.height]="bar + 'px'"
+        [ngClass]="{
+          'active-bar': activeIndexes.has(i),
+          'found-bar': foundIndex === i
+        }"
+      ></div>
+      }
+    </div>
+
+    <div class="m-1">
+      <button
+        (click)="startLinearSearch()"
+        class="border rounded-lg border-gray-700 p-1 m-1"
+      >
+        Start Linear Search
+      </button>
+      <button
+        (click)="resetArray()"
+        class="border rounded-lg border-gray-700 p-1 m-1"
+      >
+        Generate New Array
+      </button>
+    </div>
+
+    @if(targetValue !== null){
+    <div class="m-2 text-black flex flex-col">
+      <span class="font-bold font-mono"
+        >Searching for value: {{ targetValue }}</span
+      >
+      <span class="font-bold font-mono"> found Index: {{ foundIndex }} </span>
+    </div>
+    }
+  </div>
+</div>

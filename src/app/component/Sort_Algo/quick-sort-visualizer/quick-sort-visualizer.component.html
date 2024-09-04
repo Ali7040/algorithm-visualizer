@@ -1,0 +1,41 @@
+<div class="background-container">
+  <div class="content-container">
+    <div class="flex flex-col items-center justify-center m-5">
+      <span class="animate-slide-in">Quick Sort</span>
+      <hr class="border-b border-gray-700 w-full ml-2" />
+    </div>
+
+    <div class="array-container">
+      @for(bar of array;track bar;let i = $index){
+      <div
+        class="array-bar"
+        [style.height]="bar + 'px'"
+        [ngClass]="{ 'active-bar': activeIndexes.has(i) }"
+      ></div>
+      }
+    </div>
+
+    <div class="m-1">
+      <button
+        (click)="sort()"
+        class="border rounded-lg border-gray-700 p-1 m-1"
+        [disabled]="isSorting"
+      >
+        Start Sorting
+      </button>
+      <button
+        (click)="resetArray()"
+        class="border rounded-lg border-gray-700 p-1 m-1"
+      >
+        Generate New Array
+      </button>
+      <button
+        (click)="stopSorting()"
+        class="border rounded-lg border-gray-700 p-1 m-1"
+        [disabled]="!isSorting"
+      >
+        Stop Sorting
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+/* Base styles for array bars and content container */
+.array-container {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: nowrap; /* Ensure bars don't wrap to the next line */
+  padding: 10px; /* Add padding to prevent bars from touching container edges */
+}
+
+.array-bar {
+  width: 20px;
+  margin: 0 2px;
+  background-color: #69b3a2;
+}
+
+.active-bar {
+  background-color: #ff6347; /* Change to any color you'd like for the active bar */
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out forwards;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Apply background image to the container */
+.background-container {
+  background-image: url("../../../../assets/background.jpg");
+  background-size: cover; /* Adjust based on your preference */
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Add padding to ensure content isn't flush with viewport edges */
+}
+
+/* Apply blur effect to the content */
+.content-container {
+  backdrop-filter: blur(10px); /* Adjust the blur level as needed */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Optional: Add a semi-transparent background for better readability */
+  border-radius: 10px; /* Optional: Add some border radius for a rounded effect */
+  padding: 20px; /* Add padding to the content */
+  max-width: 1000px; /* Optional: Set a max width for the content */
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+/* Responsive design adjustments */
+@media (min-width: 450px) and (max-width: 868px) {
+  .array-bar {
+    width: 35px;
+    margin: 0 2px;
+  }
+
+  .content-container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .array-bar {
+    width: 25px; /* Further reduce width of bars */
+    margin: 0 1px; /* Adjust margin for better spacing */
+  }
+
+  .content-container {
+    padding: 5px; /* Further reduce padding */
+  }
+}
+
+@media (min-width: 275px) {
+  .array-bar {
+    width: 25px;
+    margin: 0 0.5px;
+  }
+
+  .content-container {
+    padding: 2px;
+  }
+}
