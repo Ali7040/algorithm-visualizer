@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { BubbleSortVisualizerComponent } from './component/bubble-sort-visualizer/bubble-sort-visualizer.component';
-import { InsertionSortVisualizerComponent } from './component/insertion-sort-visualizer/insertion-sort-visualizer.component';
-import { SelectSortVisualizerComponent } from './component/select-sort-visualizer/select-sort-visualizer.component';
-import { MergeSortVisualizerComponent } from './component/merge-sort-visualizer/merge-sort-visualizer.component';
-import { LinearSearchVisualizerComponent } from './component/linear-search-visualizer/linear-search-visualizer.component';
-import { BinarySearchVisualizerComponent } from './component/binary-search-visualizer/binary-search-visualizer.component';
-import { QuickSortVisualizerComponent } from './component/quick-sort-visualizer/quick-sort-visualizer.component';
-import { HeapSortVisualizerComponent } from './component/heap-sort-visualizer/heap-sort-visualizer.component';
+import { BubbleSortVisualizerComponent } from './component/Sort_Algo/bubble-sort-visualizer/bubble-sort-visualizer.component';
+import { HeapSortVisualizerComponent } from './component/Sort_Algo/heap-sort-visualizer/heap-sort-visualizer.component';
+import { InsertionSortVisualizerComponent } from './component/Sort_Algo/insertion-sort-visualizer/insertion-sort-visualizer.component';
+import { MergeSortVisualizerComponent } from './component/Sort_Algo/merge-sort-visualizer/merge-sort-visualizer.component';
+import { QuickSortVisualizerComponent } from './component/Sort_Algo/quick-sort-visualizer/quick-sort-visualizer.component';
+import { SelectSortVisualizerComponent } from './component/Sort_Algo/select-sort-visualizer/select-sort-visualizer.component';
+import { BinarySearchVisualizerComponent } from './component/Search_Algo/binary-search-visualizer/binary-search-visualizer.component';
+import { LinearSearchVisualizerComponent } from './component/Search_Algo/linear-search-visualizer/linear-search-visualizer.component';
 
 export const routes: Routes = [
   {
