@@ -7,6 +7,7 @@ import { QuickSortVisualizerComponent } from './component/Sort_Algo/quick-sort-v
 import { SelectSortVisualizerComponent } from './component/Sort_Algo/select-sort-visualizer/select-sort-visualizer.component';
 import { BinarySearchVisualizerComponent } from './component/Search_Algo/binary-search-visualizer/binary-search-visualizer.component';
 import { LinearSearchVisualizerComponent } from './component/Search_Algo/linear-search-visualizer/linear-search-visualizer.component';
+import { PreorderTraversalComponent } from './component/Tree_Algo/preorder-traversal/preorder-traversal.component';
 
 export const routes: Routes = [
   {
@@ -44,5 +45,9 @@ export const routes: Routes = [
   {
     path: 'binary-search-visualizer',
     component: BinarySearchVisualizerComponent,
+  },
+  {
+    path: 'preorder-traversal',
+    component: PreorderTraversalComponent,
   },
 ];

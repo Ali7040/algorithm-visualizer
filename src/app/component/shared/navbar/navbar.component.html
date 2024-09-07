@@ -98,5 +98,31 @@
         <!-- Add more search algorithms here if needed -->
       </ul>
     </li>
+
+    <!-- Search Algorithms Dropdown -->
+    <li class="relative">
+      <a
+        (click)="toggleDropdown('traversal')"
+        class="text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"
+      >
+        Tree Traversal
+      </a>
+
+      <!-- Dropdown menu for Tree Traversal Algorithms -->
+      <ul
+        *ngIf="dropdownStates.traversal"
+        class="absolute bg-gray-700 text-white mt-2 py-2 w-48 rounded shadow-lg z-10"
+      >
+        <li>
+          <a
+            routerLink="/preorder-traversal"
+            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
+          >
+            Prerder Traversal
+          </a>
+        </li>
+        <!-- Add more search algorithms here if needed -->
+      </ul>
+    </li>
   </ul>
 </nav>

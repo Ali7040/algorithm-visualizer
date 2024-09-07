@@ -13,6 +13,8 @@ export class NavbarComponent {
   dropdownStates = {
     sort: false,
     search: false,
+    traversal: false,
+
     // Add more dropdowns here as needed
   };
   toggleDropdown(type: keyof typeof this.dropdownStates) {
