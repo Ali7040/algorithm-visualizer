@@ -1,0 +1,80 @@
+.tree-container {
+  @apply flex justify-center mt-10;
+}
+
+.tree {
+  ul {
+    padding-top: 20px;
+    position: relative;
+    @apply flex justify-center;
+  }
+
+  ul ul {
+    padding-top: 20px;
+  }
+
+  ul:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-top: 2px solid #ccc;
+    width: 50%;
+    height: 20px;
+  }
+
+  ul ul:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #ccc;
+    width: 0;
+    height: 20px;
+  }
+
+  li {
+    position: relative;
+    padding: 20px 5px 0 5px;
+    list-style-type: none;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      border-top: 2px solid #ccc;
+      width: 50%;
+      height: 20px;
+    }
+
+    &:before {
+      right: 50%;
+      border-right: 2px solid #ccc;
+    }
+
+    &:after {
+      left: 50%;
+      border-left: 2px solid #ccc;
+    }
+
+    &:only-child:before,
+    &:only-child:after {
+      display: none;
+    }
+
+    &:only-child {
+      padding-top: 0;
+    }
+
+    .node {
+      @apply bg-green-400 text-white text-center items-center  rounded-full w-12 h-12 mx-auto;
+      transition: background-color 0.5s, transform 0.5s;
+    }
+
+    .active-node {
+      background-color: #ff6347;
+      transform: scale(1.2);
+    }
+  }
+}
