@@ -1,0 +1,91 @@
+<div class="tree-container">
+  <div class="tree">
+    <ul>
+      <li>
+        <div
+          class="node"
+          [ngClass]="{ 'active-node': activeNode === treeNodes[0]?.value }"
+        >
+          {{ treeNodes[0]?.value }}
+        </div>
+        <ul>
+          <li>
+            <div
+              class="node"
+              [ngClass]="{ 'active-node': activeNode === treeNodes[1]?.value }"
+            >
+              {{ treeNodes[1]?.value }}
+            </div>
+            <ul>
+              <li>
+                <div
+                  class="node"
+                  [ngClass]="{
+                    'active-node': activeNode === treeNodes[3]?.value
+                  }"
+                >
+                  {{ treeNodes[3]?.value }}
+                </div>
+              </li>
+              <li>
+                <div
+                  class="node"
+                  [ngClass]="{
+                    'active-node': activeNode === treeNodes[4]?.value
+                  }"
+                >
+                  {{ treeNodes[4]?.value }}
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div
+              class="node"
+              [ngClass]="{ 'active-node': activeNode === treeNodes[2]?.value }"
+            >
+              {{ treeNodes[2]?.value }}
+            </div>
+            <ul>
+              <li>
+                <div
+                  class="node"
+                  [ngClass]="{
+                    'active-node': activeNode === treeNodes[5]?.value
+                  }"
+                >
+                  {{ treeNodes[5]?.value }}
+                </div>
+              </li>
+              <li>
+                <div
+                  class="node"
+                  [ngClass]="{
+                    'active-node': activeNode === treeNodes[6]?.value
+                  }"
+                >
+                  {{ treeNodes[6]?.value }}
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="controls mt-4 text-center">
+  <button
+    class="bg-blue-500 text-white font-bold py-2 px-4 rounded mx-2 hover:bg-blue-700"
+    (click)="inOrderTraversal(treeNodes[0])"
+  >
+    Start Postorder Traversal
+  </button>
+  <button
+    class="bg-gray-500 text-white font-bold py-2 px-4 rounded mx-2 hover:bg-gray-700"
+    (click)="resetTree()"
+  >
+    Reset Tree
+  </button>
+</div>
