@@ -9,6 +9,7 @@ import { BinarySearchVisualizerComponent } from './component/Search_Algo/binary-
 import { LinearSearchVisualizerComponent } from './component/Search_Algo/linear-search-visualizer/linear-search-visualizer.component';
 import { PreorderTraversalComponent } from './component/Tree_Algo/preorder-traversal/preorder-traversal.component';
 import { PostOrderTraversalComponent } from './component/Tree_Algo/post-order-traversal/post-order-traversal.component';
+import { InOrderTraversalComponent } from './component/Tree_Algo/in-order-traversal/in-order-traversal.component';
 
 export const routes: Routes = [
   {
@@ -54,5 +55,9 @@ export const routes: Routes = [
   {
     path: 'postorder-traversal',
     component: PostOrderTraversalComponent,
+  },
+  {
+    path: 'inorder-traversal',
+    component: InOrderTraversalComponent,
   },
 ];
