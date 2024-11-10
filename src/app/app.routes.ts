@@ -10,6 +10,7 @@ import { LinearSearchVisualizerComponent } from './component/Search_Algo/linear-
 import { PreorderTraversalComponent } from './component/Tree_Algo/preorder-traversal/preorder-traversal.component';
 import { PostOrderTraversalComponent } from './component/Tree_Algo/post-order-traversal/post-order-traversal.component';
 import { InOrderTraversalComponent } from './component/Tree_Algo/in-order-traversal/in-order-traversal.component';
+import { CountingSortComponent } from './component/Sort_Algo/counting-sort/counting-sort.component';
 
 export const routes: Routes = [
   {
@@ -59,5 +60,9 @@ export const routes: Routes = [
   {
     path: 'inorder-traversal',
     component: InOrderTraversalComponent,
+  },
+  {
+    path: 'counting-sort-visualizer',
+    component: CountingSortComponent,
   },
 ];
