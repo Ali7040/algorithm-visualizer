@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeapSortVisualizerComponent implements OnInit {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
-  isSorting = false; // Single flag to track sorting state
+  isSorting = false;
 
   ngOnInit() {
     this.resetArray();
@@ -22,11 +22,12 @@ export class HeapSortVisualizerComponent implements OnInit {
       { length: 100 },
       () => Math.floor(Math.random() * 400) + 20
     );
-    this.isSorting = false; // Reset sorting flag
+    this.clearActiveIndexes();
+    this.isSorting = false;
   }
 
   async heapSort(): Promise<void> {
-    this.isSorting = true; // Start sorting
+    this.isSorting = true;
     const n = this.array.length;
 
     for (let i = Math.floor(n / 2) - 1; i >= 0 && this.isSorting; i--) {
@@ -34,19 +35,22 @@ export class HeapSortVisualizerComponent implements OnInit {
     }
 
     for (let i = n - 1; i > 0 && this.isSorting; i--) {
+      this.setActiveIndexes([0, i]);
       [this.array[0], this.array[i]] = [this.array[i], this.array[0]];
+      await this.sleep(100); // Delay to show the swap animation
       await this.heapify(i, 0);
+      this.clearActiveIndexes();
     }
 
-    this.isSorting = false; // Stop sorting when done
+    this.isSorting = false;
   }
 
   async heapify(n: number, i: number): Promise<void> {
     if (!this.isSorting) return;
 
+    let largest = i;
     const left = 2 * i + 1;
     const right = 2 * i + 2;
-    let largest = i;
 
     if (left < n && this.array[left] > this.array[largest]) {
       largest = left;
@@ -57,11 +61,14 @@ export class HeapSortVisualizerComponent implements OnInit {
     }
 
     if (largest !== i) {
+      this.setActiveIndexes([i, largest]);
       [this.array[i], this.array[largest]] = [
         this.array[largest],
         this.array[i],
       ];
+      await this.sleep(100); // Delay to show the heapify step
       await this.heapify(n, largest);
+      this.clearActiveIndexes();
     }
   }
 
