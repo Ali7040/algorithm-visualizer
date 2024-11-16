@@ -16,6 +16,24 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Title styling */
+span.animate-slide-in {
+  font-weight: bold;
+  font-family: "Sans-serif";
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-align: center;
+  animation: slide-in 0.5s ease;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: #444;
+  width: 80%;
+}
+
+/* Array bar container styling */
 .array-container {
   display: flex;
   align-items: flex-end;
@@ -39,7 +57,7 @@
 /* Active bar styling */
 .active-bar {
   background-color: #ff9800 !important;
-  transform: scaleY(1.05); /* Adds a slight pop effect */
+  transform: scaleY(1.05);
 }
 
 /* Button styling */
@@ -65,10 +83,14 @@ button:disabled {
   color: #888;
 }
 
-/* Headings */
-h3 {
-  color: #d0d0e1;
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 5px;
+/* Animation */
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
