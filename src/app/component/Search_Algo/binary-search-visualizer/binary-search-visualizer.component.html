@@ -1,13 +1,15 @@
 <div class="background-container">
   <div class="content-container">
+    <!-- Title Section -->
     <div class="flex flex-col items-center justify-center m-5">
       <span class="animate-slide-in">Binary Search</span>
       <hr class="border-b border-gray-700 w-full ml-2" />
     </div>
 
+    <!-- Array Visualization -->
     <div class="array-container">
-      @for(bar of array;track bar;let i = $index){
       <div
+        *ngFor="let bar of array; let i = index"
         class="array-bar"
         [style.height]="bar + 'px'"
         [ngClass]="{
@@ -16,9 +18,9 @@
           'found-bar': foundIndex === i
         }"
       ></div>
-      }
     </div>
 
+    <!-- Action Buttons -->
     <div class="m-1">
       <button
         (click)="startBinarySearch()"
@@ -32,14 +34,23 @@
       >
         Generate New Array
       </button>
-    </div>
-    @if(targetValue !== null){
-    <div>
-      <span class="font-bold font-mono"
-        >Searching for value: {{ targetValue }}</span
+      <button
+        *ngIf="isSearching"
+        (click)="cancelSearch()"
+        class="border rounded-lg border-gray-700 p-1 m-1"
       >
-      <span class="font-bold font-mono"> found Index: {{ foundIndex }} </span>
+        Cancel Search
+      </button>
     </div>
-    }
+
+    <!-- Search Information -->
+    <div *ngIf="targetValue !== null" class="mt-2">
+      <span class="font-bold font-mono">
+        Searching for value: {{ targetValue }}
+      </span>
+      <span class="font-bold font-mono ml-2">
+        Found Index: {{ foundIndex }}
+      </span>
+    </div>
   </div>
 </div>
