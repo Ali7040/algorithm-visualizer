@@ -1,94 +1,96 @@
+/* General container styling */
+.background-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e1e2e;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.content-container {
+  width: 80%;
+  background-color: #28293d;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+span.animate-slide-in {
+  font-weight: bold;
+  font-family: "Sans-serif";
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-align: center;
+  animation: slide-in 0.5s ease;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: #444;
+  width: 80%;
+}
+
+/* Array container styling */
 .array-container {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #32334a;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Bar styling */
 .array-bar {
   width: 20px;
-  margin: 0 2px;
-  background-color: #69b3a2;
+  background-color: #4caf50;
+  transition: height 0.3s ease, background-color 0.3s ease;
+  border-radius: 3px;
 }
 
+/* Active bar styling */
 .active-bar {
-  background-color: #ff6347; // Change to any color you'd like for the active bar
+  background-color: #ff9800 !important;
+  transform: scaleY(1.05); /* Slightly taller for active bars */
 }
 
+/* Button styling */
+button {
+  background-color: #4a4c60;
+  color: #e0e0e0;
+  padding: 8px 15px;
+  margin: 5px;
+  border: 1px solid #606275;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5c5f77;
+}
+
+button:disabled {
+  background-color: #3a3b47;
+  cursor: not-allowed;
+  color: #888;
+}
+
+/* Animation */
 @keyframes slide-in {
-  0% {
+  from {
     transform: translateX(-100%);
     opacity: 0;
   }
-  100% {
+  to {
     transform: translateX(0);
     opacity: 1;
-  }
-}
-
-.animate-slide-in {
-  animation: slide-in 0.5s ease-out forwards;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-/* Apply background image to the container */
-.background-container {
-  background-image: url("../../../../assets/background.jpg");
-  background-size: cover; /* Adjust based on your preference */
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh; /* Ensure it covers the full viewport height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px; /* Add padding to ensure content isn't flush with viewport edges */
-}
-
-/* Apply blur effect to the content */
-.content-container {
-  backdrop-filter: blur(10px); /* Adjust the blur level as needed */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.5
-  ); /* Optional: Add a semi-transparent background for better readability */
-  border-radius: 10px; /* Optional: Add some border radius for a rounded effect */
-  padding: 20px; /* Add padding to the content */
-  max-width: 1000px; /* Optional: Set a max width for the content */
-  width: 100%;
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-}
-
-/* Responsive design adjustments */
-@media (min-width: 450px) and (max-width: 868px) {
-  .array-bar {
-    width: 35px;
-    margin: 0 2px;
-  }
-
-  .content-container {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 640px) {
-  .array-bar {
-    width: 25px; /* Further reduce width of bars */
-    margin: 0 1px; /* Adjust margin for better spacing */
-  }
-
-  .content-container {
-    padding: 5px; /* Further reduce padding */
-  }
-}
-
-@media (min-width: 275px) {
-  .array-bar {
-    width: 25px;
-    margin: 0 0.5px;
-  }
-
-  .content-container {
-    padding: 2px;
   }
 }
