@@ -9,7 +9,8 @@
 }
 
 .content-container {
-  width: 80%;
+  width: 90%; /* Adjusted for smaller screens */
+  max-width: 1200px;
   background-color: #28293d;
   border-radius: 10px;
   padding: 20px;
@@ -44,6 +45,7 @@ hr {
   border-radius: 5px;
   background-color: #32334a;
   box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+  overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
 }
 
 /* Bar styling */
@@ -92,5 +94,49 @@ button:disabled {
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust title font size for smaller screens */
+  span.animate-slide-in {
+    font-size: 1.2rem;
+  }
+
+  /* Adjust bar width and gap for smaller screens */
+  .array-bar {
+    width: 15px;
+  }
+
+  .array-container {
+    gap: 3px; /* Reduced gap between bars */
+    padding: 5px;
+  }
+
+  /* Reduce button padding and font size */
+  button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust further for very small screens */
+  span.animate-slide-in {
+    font-size: 1rem;
+  }
+
+  .array-bar {
+    width: 10px;
+  }
+
+  .array-container {
+    gap: 2px;
+  }
+
+  button {
+    padding: 5px 8px;
+    font-size: 0.8rem;
   }
 }

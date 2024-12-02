@@ -9,7 +9,8 @@
 }
 
 .content-container {
-  width: 80%;
+  width: 90%; /* Adjust for smaller screens */
+  max-width: 1200px;
   background-color: #28293d;
   border-radius: 10px;
   padding: 20px;
@@ -33,7 +34,7 @@ hr {
   width: 80%;
 }
 
-/* Array container styling */
+/* Array visualization container styling */
 .array-container {
   display: flex;
   align-items: flex-end;
@@ -44,9 +45,10 @@ hr {
   border-radius: 5px;
   background-color: #32334a;
   box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+  overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
 }
 
-/* Bar styling */
+/* Array bar styling */
 .array-bar {
   width: 20px;
   background-color: #4caf50;
@@ -57,19 +59,18 @@ hr {
 /* Active bar styling */
 .active-bar {
   background-color: #ff9800 !important;
-  transform: scaleY(1.05); /* Slightly taller for active bars */
+  transform: scaleY(1.05);
 }
 
-/* Midpoint bar styling */
+/* Middle bar styling */
 .mid-bar {
-  background-color: #2196f3; /* Blue for midpoint */
-  transform: scale(1.1); /* Slightly bigger for emphasis */
+  background-color: #007bff !important;
 }
 
 /* Found bar styling */
 .found-bar {
-  background-color: #8bc34a; /* Green to indicate found value */
-  transform: scale(1.2); /* Slightly bigger for found bar */
+  background-color: #00e676 !important;
+  transform: scale(1.1);
 }
 
 /* Button styling */
@@ -95,11 +96,13 @@ button:disabled {
   color: #888;
 }
 
-/* Info text styling */
-div span {
-  color: #d0d0e1;
-  font-size: 1rem;
-  font-family: "Courier New", Courier, monospace;
+/* Search information styling */
+.font-bold {
+  color: #ffffff;
+}
+
+.font-mono {
+  font-family: "Courier New", monospace;
 }
 
 /* Animation */
@@ -111,5 +114,49 @@ div span {
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust title font size for smaller screens */
+  span.animate-slide-in {
+    font-size: 1.2rem;
+  }
+
+  /* Adjust bar width and gap for smaller screens */
+  .array-bar {
+    width: 15px;
+  }
+
+  .array-container {
+    gap: 3px; /* Reduced gap between bars */
+    padding: 5px;
+  }
+
+  /* Reduce button padding and font size */
+  button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust further for very small screens */
+  span.animate-slide-in {
+    font-size: 1rem;
+  }
+
+  .array-bar {
+    width: 10px;
+  }
+
+  .array-container {
+    gap: 2px;
+  }
+
+  button {
+    padding: 5px 8px;
+    font-size: 0.8rem;
   }
 }
