@@ -1,5 +1,15 @@
 # AlgorithmVisualizer
 
+An interactive web application for visualizing various algorithms including sorting algorithms, search algorithms, and tree traversal methods.
+
+## Live Demo
+
+🚀 **[View Live Application](https://visual-alg0.netlify.app/)**
+
+Experience the algorithm visualizations in action at: https://visual-alg0.netlify.app/
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
 ## Development server
