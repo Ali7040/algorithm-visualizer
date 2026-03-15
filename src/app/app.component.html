@@ -1,8 +1,35 @@
-<!-- <app-bubble-sort-visualizer> </app-bubble-sort-visualizer> -->
-<!-- <app-insertion-sort-visualizer></app-insertion-sort-visualizer> -->
+<div class="app-shell">
+  <section class="top-banner" aria-label="Upcoming features banner">
+    <span class="top-banner-kicker">New Feature</span>
+    <p class="top-banner-line">
+      Comparison Mode + Time Complexity Overlay are coming next for every algorithm visualizer.
+    </p>
+  </section>
 
-<div class="bg-custom-image">
-  <!-- Your content here -->
   <app-navbar></app-navbar>
-  <router-outlet></router-outlet>
+
+  <section class="hero-card" *ngIf="showHero">
+    <button type="button" class="hero-dismiss" (click)="dismissHero()">
+      Dismiss
+    </button>
+    <p class="hero-eyebrow">Learn Faster</p>
+    <h2>Visualize Algorithms With Real-Time Control</h2>
+    <p>
+      Explore sorting, searching, and tree traversal with smooth transitions,
+      theme-aware UI, and adjustable animation speed.
+    </p>
+    <div class="hero-cta-row">
+      <a routerLink="/bubble-sort-visualizer">Start With Sorting</a>
+      <a routerLink="/binary-search-visualizer">Try Binary Search</a>
+      <a routerLink="/preorder-traversal">Open Tree Traversal</a>
+    </div>
+  </section>
+
+  <main class="route-stage" [@routeTransition]="router.url">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="app-footer">
+    Created with love ❤️ by Ali Haider.
+  </footer>
 </div>

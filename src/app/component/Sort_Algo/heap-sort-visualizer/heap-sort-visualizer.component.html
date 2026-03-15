@@ -14,27 +14,39 @@
         [ngClass]="{ 'active-bar': activeIndexes.has(i) }"
       ></div>
     </div>
-    <div class="m-1">
-      <button
-        (click)="heapSort()"
-        class="border rounded-lg text-gray-200 font-bold border-gray-300 p-1 m-1 cursor-pointer"
-        [disabled]="isSorting"
-      >
-        Start Sorting
-      </button>
-      <button
-        (click)="resetArray()"
-        class="border rounded-lg text-gray-200 font-bold border-gray-300 p-1 m-1 cursor-pointer"
-      >
-        Generate New Array
-      </button>
-      <button
-        (click)="stopSorting()"
-        class="border rounded-lg text-gray-200 font-bold border-gray-300 p-1 m-1 cursor-pointer"
-        [disabled]="!isSorting"
-      >
-        Stop Sorting
-      </button>
+    <div class="controls-panel">
+      <div class="controls-row">
+        <button (click)="heapSort()" [disabled]="isSorting">Start Sorting</button>
+        <button (click)="resetArray()">Generate New Array</button>
+        <button (click)="stopSorting()" [disabled]="!isSorting">
+          Stop Sorting
+        </button>
+      </div>
+      <div class="controls-row controls-row-sliders">
+        <label class="control-field">
+          <span class="control-field-head"><span>Speed</span><span>{{ speedFactor }}x</span></span>
+          <input
+            type="range"
+            min="0.5"
+            max="4"
+            step="0.5"
+            [value]="speedFactor"
+            (input)="onSpeedChange($event)"
+          />
+        </label>
+        <label class="control-field">
+          <span class="control-field-head"><span>Array Size</span><span>{{ arraySize }}</span></span>
+          <input
+            type="range"
+            min="20"
+            max="170"
+            step="5"
+            [value]="arraySize"
+            [disabled]="isSorting"
+            (input)="onArraySizeChange($event)"
+          />
+        </label>
+      </div>
     </div>
   </div>
 </div>

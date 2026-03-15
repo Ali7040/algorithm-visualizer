@@ -12,6 +12,8 @@ export class MergeSortVisualizerComponent {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
   isSorting = false; // Single flag to track sorting state
+  arraySize = 90;
+  speedFactor = Number(localStorage.getItem('viz-speed') ?? '1');
 
   ngOnInit() {
     this.resetArray();
@@ -19,10 +21,24 @@ export class MergeSortVisualizerComponent {
 
   resetArray() {
     this.array = Array.from(
-      { length: 100 },
+      { length: this.arraySize },
       () => Math.floor(Math.random() * 400) + 20
     );
     this.isSorting = false; // Reset sorting flag
+  }
+
+  onArraySizeChange(event: Event) {
+    const nextSize = Number((event.target as HTMLInputElement).value);
+    this.arraySize = Math.max(20, Math.min(170, nextSize));
+    if (!this.isSorting) {
+      this.resetArray();
+    }
+  }
+
+  onSpeedChange(event: Event) {
+    const nextSpeed = Number((event.target as HTMLInputElement).value);
+    this.speedFactor = Math.max(0.5, Math.min(4, nextSpeed));
+    localStorage.setItem('viz-speed', String(this.speedFactor));
   }
 
   async mergeSort(
@@ -70,7 +86,7 @@ export class MergeSortVisualizerComponent {
       }
 
       this.array[start + result.length - 1] = result[result.length - 1];
-      await this.sleep(100);
+      await this.sleep(18);
       this.clearActiveIndexes();
     }
 
@@ -80,7 +96,7 @@ export class MergeSortVisualizerComponent {
       result.push(left[leftIndex]);
       this.array[start + result.length - 1] = left[leftIndex];
       leftIndex++;
-      await this.sleep(100);
+      await this.sleep(18);
     }
 
     while (rightIndex < right.length) {
@@ -89,7 +105,7 @@ export class MergeSortVisualizerComponent {
       result.push(right[rightIndex]);
       this.array[start + result.length - 1] = right[rightIndex];
       rightIndex++;
-      await this.sleep(100);
+      await this.sleep(18);
     }
 
     return result;
@@ -114,6 +130,11 @@ export class MergeSortVisualizerComponent {
   }
 
   sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    const adjustedDelay = Math.max(
+      1,
+      Math.floor(ms / (this.speedFactor > 0 ? this.speedFactor : 1))
+    );
+    return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
+

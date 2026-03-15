@@ -12,6 +12,8 @@ export class InsertionSortVisualizerComponent implements OnInit {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
   isSorting: boolean = false;
+  arraySize = 90;
+  speedFactor = Number(localStorage.getItem('viz-speed') ?? '1');
 
   ngOnInit() {
     this.resetArray();
@@ -19,7 +21,7 @@ export class InsertionSortVisualizerComponent implements OnInit {
 
   resetArray() {
     this.array = Array.from(
-      { length: 100 },
+      { length: this.arraySize },
       () => Math.floor(Math.random() * 400) + 20
     );
     this.isSorting = false; // Ensure sorting flag is reset
@@ -38,13 +40,13 @@ export class InsertionSortVisualizerComponent implements OnInit {
 
       while (j >= 0 && this.array[j] > key && this.isSorting) {
         this.array[j + 1] = this.array[j];
-        j = j - 1;
-        await this.sleep(150);
+        j -= 1;
+        await this.sleep(24);
         this.setActiveIndexes([j + 1, j]); // Update active indexes
       }
 
       this.array[j + 1] = key;
-      await this.sleep(50);
+      await this.sleep(12);
       this.clearActiveIndexes(); // Clear active indexes after insertion
     }
 
@@ -63,7 +65,27 @@ export class InsertionSortVisualizerComponent implements OnInit {
     this.activeIndexes.clear();
   }
 
+  onArraySizeChange(event: Event) {
+    const nextSize = Number((event.target as HTMLInputElement).value);
+    this.arraySize = Math.max(20, Math.min(170, nextSize));
+    if (!this.isSorting) {
+      this.resetArray();
+    }
+  }
+
+  onSpeedChange(event: Event) {
+    const nextSpeed = Number((event.target as HTMLInputElement).value);
+    this.speedFactor = Math.max(0.5, Math.min(4, nextSpeed));
+    localStorage.setItem('viz-speed', String(this.speedFactor));
+  }
+
   sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    const adjustedDelay = Math.max(
+      1,
+      Math.floor(ms / (this.speedFactor > 0 ? this.speedFactor : 1))
+    );
+    return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
+
+

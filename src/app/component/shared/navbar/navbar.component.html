@@ -1,154 +1,45 @@
-<nav class="bg-gray-800 p-4">
-  <ul class="flex space-x-4">
-    <!-- Sort Methods Dropdown -->
-    <li class="relative">
-      <a
-        (click)="toggleDropdown('sort')"
-        class="text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"
-      >
-        Sort Methods
-      </a>
+<nav class="nav-shell" role="navigation" aria-label="Algorithm navigation">
+  <div class="brand-block">
+    <h1 class="brand-title">AlgoScope</h1>
+    <p class="brand-subtitle">Interactive Algorithm Visualizer</p>
+  </div>
 
-      <!-- Dropdown menu for Sort Methods -->
-      <ul
-        *ngIf="dropdownStates.sort"
-        class="absolute bg-gray-700 text-white mt-2 py-2 w-48 rounded shadow-lg z-10"
-      >
-        <li>
-          <a
-            routerLink="/bubble-sort-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Bubble Sort
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/insertion-sort-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Insertion Sort
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/select-sort-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Selection Sort
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/merge-sort-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Merge Sort
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/quick-sort-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Quick Sort
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/heap-sort-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Heap Sort
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/counting-sort-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Counting Sort
-          </a>
-        </li>
-      </ul>
-    </li>
+  <button
+    type="button"
+    class="menu-toggle"
+    (click)="toggleMobileMenu()"
+    aria-label="Toggle navigation menu"
+  >
+    {{ mobileMenuOpen ? 'Close' : 'Menu' }}
+  </button>
 
-    <!-- Search Algorithms Dropdown -->
-    <li class="relative">
-      <a
-        (click)="toggleDropdown('search')"
-        class="text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"
-      >
-        Search Algorithms
-      </a>
+  <div class="nav-actions" [class.nav-actions-open]="mobileMenuOpen">
+    <ul class="menu-list">
+      <li class="menu-item" *ngFor="let menu of navMenus">
+        <button
+          type="button"
+          class="menu-trigger"
+          (click)="toggleDropdown(menu.key)"
+        >
+          {{ menu.label }}
+        </button>
+        <ul class="dropdown" *ngIf="dropdownStates[menu.key]">
+          <li *ngFor="let item of menu.items">
+            <a
+              [routerLink]="item.route"
+              class="dropdown-link"
+              (click)="closeMenus()"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
-      <!-- Dropdown menu for Search Algorithms -->
-      <ul
-        *ngIf="dropdownStates.search"
-        class="absolute bg-gray-700 text-white mt-2 py-2 w-48 rounded shadow-lg z-10"
-      >
-        <li>
-          <a
-            routerLink="/linear-search-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Linear Search
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/binary-search-visualizer"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Binary Search
-          </a>
-        </li>
-        <!-- Add more search algorithms here if needed -->
-      </ul>
-    </li>
-
-    <!-- Search Algorithms Dropdown -->
-    <li class="relative">
-      <a
-        (click)="toggleDropdown('traversal')"
-        class="text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"
-      >
-        Tree Traversal
-      </a>
-
-      <!-- Dropdown menu for Tree Traversal Algorithms -->
-      <ul
-        *ngIf="dropdownStates.traversal"
-        class="absolute bg-gray-700 text-white mt-2 py-2 w-48 rounded shadow-lg z-10"
-      >
-        <li>
-          <a
-            routerLink="/preorder-traversal"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Prerder Traversal
-          </a>
-        </li>
-
-        <li>
-          <a
-            routerLink="/postorder-traversal"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            Post Order Traversal
-          </a>
-        </li>
-
-        <li>
-          <a
-            routerLink="/inorder-traversal"
-            class="block px-4 py-2 hover:bg-gray-600 transition-colors duration-300"
-          >
-            In Order Traversal
-          </a>
-        </li>
-        <!-- Add more search algorithms here if needed -->
-      </ul>
-    </li>
-  </ul>
+    <button type="button" class="theme-toggle" (click)="toggleTheme()">
+      <span>{{ isDarkMode ? 'Light' : 'Dark' }}</span>
+      <span>Theme</span>
+    </button>
+  </div>
 </nav>

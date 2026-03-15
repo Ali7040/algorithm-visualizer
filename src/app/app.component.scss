@@ -1,0 +1,121 @@
+.top-banner {
+	margin: 0.2rem 0 0.65rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.65rem;
+	border: 1px solid var(--border-soft);
+	border-radius: 14px;
+	padding: 0.56rem 0.8rem;
+	color: var(--text-strong);
+	background: linear-gradient(135deg, var(--surface-elevated), var(--surface-muted));
+	box-shadow: var(--shadow-soft);
+	overflow: hidden;
+}
+
+.top-banner-kicker {
+	display: inline-flex;
+	flex-shrink: 0;
+	padding: 0.24rem 0.66rem;
+	border-radius: 999px;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	background: linear-gradient(135deg, #2f87ea, #1f5fca);
+	color: #eef6ff;
+	border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.top-banner-line {
+	margin: 0;
+	font-size: 0.84rem;
+	font-weight: 600;
+	line-height: 1.25;
+	color: var(--text-muted);
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@media (max-width: 760px) {
+	.top-banner {
+		padding: 0.52rem 0.65rem;
+	}
+
+	.top-banner-line {
+		font-size: 0.78rem;
+	}
+}
+
+.hero-card {
+	position: relative;
+	border: 1px solid var(--border-strong);
+	background: linear-gradient(
+		120deg,
+		var(--surface-elevated) 0%,
+		var(--surface-muted) 100%
+	);
+	border-radius: 22px;
+	padding: clamp(1rem, 3vw, 1.8rem);
+	box-shadow: var(--shadow-soft);
+	margin-bottom: 1rem;
+	overflow: hidden;
+}
+
+
+
+.hero-eyebrow {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 0.72rem;
+	color: var(--accent);
+	font-weight: 700;
+}
+
+.hero-card h2 {
+	margin: 0.45rem 0;
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: clamp(1.3rem, 3vw, 2rem);
+	color: var(--text-strong);
+}
+
+.hero-card p {
+	margin: 0;
+	max-width: 760px;
+	color: var(--text-muted);
+}
+
+.hero-cta-row {
+	margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+}
+
+.hero-cta-row a {
+	text-decoration: none;
+	color: var(--text-strong);
+	border: 1px solid var(--border-soft);
+	background: var(--surface-elevated);
+	border-radius: 999px;
+	font-weight: 600;
+	padding: 0.5rem 0.85rem;
+	transition: 0.2s ease;
+}
+
+.hero-cta-row a:hover {
+	border-color: var(--accent);
+	transform: translateY(-1px);
+}
+
+.hero-dismiss {
+	position: absolute;
+	right: 0.9rem;
+	top: 0.9rem;
+}
+
+.route-stage {
+	position: relative;
+}

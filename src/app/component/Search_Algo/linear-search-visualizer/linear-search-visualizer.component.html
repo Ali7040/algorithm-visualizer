@@ -1,12 +1,12 @@
 <div class="background-container">
   <div class="content-container">
     <div class="flex flex-col items-center justify-center m-5">
-      <span class="animate-slide-in">linear search</span>
+      <span class="animate-slide-in">Linear Search</span>
       <hr class="border-b border-gray-700 w-full ml-2" />
     </div>
 
     <div class="array-container">
-      @for(bar of array;track bar;let i = $index){
+      @for(bar of array;track i;let i = $index){
       <div
         class="array-bar"
         [style.height]="bar + 'px'"
@@ -18,23 +18,44 @@
       }
     </div>
 
-    <div class="m-1">
-      <button
-        (click)="startLinearSearch()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
-      >
-        Start Linear Search
-      </button>
-      <button
-        (click)="resetArray()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
-      >
-        Generate New Array
-      </button>
+    <div class="controls-panel">
+      <div class="controls-row">
+        <button (click)="startLinearSearch()" [disabled]="isSearching">
+          Start Linear Search
+        </button>
+        <button (click)="resetArray()" [disabled]="isSearching">
+          Generate New Array
+        </button>
+      </div>
+      <div class="controls-row controls-row-sliders">
+        <label class="control-field">
+          <span class="control-field-head"><span>Speed</span><span>{{ speedFactor }}x</span></span>
+          <input
+            type="range"
+            min="0.5"
+            max="4"
+            step="0.5"
+            [value]="speedFactor"
+            (input)="onSpeedChange($event)"
+          />
+        </label>
+        <label class="control-field">
+          <span class="control-field-head"><span>Array Size</span><span>{{ arraySize }}</span></span>
+          <input
+            type="range"
+            min="20"
+            max="170"
+            step="5"
+            [value]="arraySize"
+            [disabled]="isSearching"
+            (input)="onArraySizeChange($event)"
+          />
+        </label>
+      </div>
     </div>
 
     @if(targetValue !== null){
-    <div class="m-2 text-black flex flex-col">
+    <div class="m-2 flex flex-col">
       <span class="font-bold font-mono"
         >Searching for value: {{ targetValue }}</span
       >

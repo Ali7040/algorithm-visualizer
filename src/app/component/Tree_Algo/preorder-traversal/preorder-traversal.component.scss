@@ -1,61 +1,70 @@
+:host {
+  display: block;
+}
+
 .tree-container {
-  @apply flex justify-center mt-10;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 0.8rem;
 }
 
 .tree {
+  min-width: 580px;
+
   ul {
-    padding-top: 20px;
+    padding-top: 22px;
     position: relative;
-    @apply flex justify-center;
+    display: flex;
+    justify-content: center;
   }
 
   ul ul {
-    padding-top: 20px;
+    padding-top: 22px;
   }
 
   ul:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 50%;
-    border-top: 2px solid #ccc;
+    border-top: 1px solid var(--border-soft);
     width: 50%;
-    height: 20px;
+    height: 22px;
   }
 
   ul ul:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 50%;
-    border-left: 2px solid #ccc;
+    border-left: 1px solid var(--border-soft);
     width: 0;
-    height: 20px;
+    height: 22px;
   }
 
   li {
     position: relative;
-    padding: 20px 5px 0 5px;
+    padding: 20px 6px 0;
     list-style-type: none;
 
     &:before,
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
-      border-top: 2px solid #ccc;
+      border-top: 1px solid var(--border-soft);
       width: 50%;
-      height: 20px;
+      height: 22px;
     }
 
     &:before {
       right: 50%;
-      border-right: 2px solid #ccc;
+      border-right: 1px solid var(--border-soft);
     }
 
     &:after {
       left: 50%;
-      border-left: 2px solid #ccc;
+      border-left: 1px solid var(--border-soft);
     }
 
     &:only-child:before,
@@ -66,15 +75,33 @@
     &:only-child {
       padding-top: 0;
     }
-
-    .node {
-      @apply bg-green-400 text-white text-center items-center  rounded-full w-12 h-12 mx-auto;
-      transition: background-color 0.5s, transform 0.5s;
-    }
-
-    .active-node {
-      background-color: #ff6347;
-      transform: scale(1.2);
-    }
   }
+}
+
+.node {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--text-strong);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-elevated);
+  box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.active-node {
+  background: var(--bar-active);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
 }

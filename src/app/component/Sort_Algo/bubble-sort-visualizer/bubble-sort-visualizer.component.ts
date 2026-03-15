@@ -12,6 +12,8 @@ export class BubbleSortVisualizerComponent {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
   isSorting: boolean = false; // Flag to track sorting state
+  arraySize = 90;
+  speedFactor = Number(localStorage.getItem('viz-speed') ?? '1');
 
   ngOnInit() {
     this.resetArray();
@@ -19,10 +21,24 @@ export class BubbleSortVisualizerComponent {
 
   resetArray() {
     this.array = Array.from(
-      { length: 100 },
+      { length: this.arraySize },
       () => Math.floor(Math.random() * 400) + 20
     );
     this.isSorting = false; // Reset sorting flag
+  }
+
+  onArraySizeChange(event: Event) {
+    const nextSize = Number((event.target as HTMLInputElement).value);
+    this.arraySize = Math.max(20, Math.min(170, nextSize));
+    if (!this.isSorting) {
+      this.resetArray();
+    }
+  }
+
+  onSpeedChange(event: Event) {
+    const nextSpeed = Number((event.target as HTMLInputElement).value);
+    this.speedFactor = Math.max(0.5, Math.min(4, nextSpeed));
+    localStorage.setItem('viz-speed', String(this.speedFactor));
   }
 
   async bubbleSort(): Promise<void> {
@@ -35,7 +51,7 @@ export class BubbleSortVisualizerComponent {
             this.array[j + 1],
             this.array[j],
           ];
-          await this.sleep(150);
+          await this.sleep(24);
         }
         this.clearActiveIndexes();
       }
@@ -56,6 +72,11 @@ export class BubbleSortVisualizerComponent {
   }
 
   sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    const adjustedDelay = Math.max(
+      1,
+      Math.floor(ms / (this.speedFactor > 0 ? this.speedFactor : 1))
+    );
+    return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
+

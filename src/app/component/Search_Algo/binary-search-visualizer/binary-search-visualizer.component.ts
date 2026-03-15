@@ -16,6 +16,8 @@ export class BinarySearchVisualizerComponent implements OnInit {
   targetValue: number | null = null;
   isSearching: boolean = false; // Tracks if a search is ongoing
   cancelSearchFlag: boolean = false; // Tracks if a search is canceled
+  arraySize = 90;
+  speedFactor = Number(localStorage.getItem('viz-speed') ?? '1');
 
   ngOnInit() {
     this.resetArray();
@@ -27,7 +29,7 @@ export class BinarySearchVisualizerComponent implements OnInit {
     }
 
     this.array = Array.from(
-      { length: 100 },
+      { length: this.arraySize },
       () => Math.floor(Math.random() * 400) + 20
     ).sort((a, b) => a - b); // Create and sort the new array
     this.foundIndex = null;
@@ -46,7 +48,7 @@ export class BinarySearchVisualizerComponent implements OnInit {
     while (left <= right && !this.cancelSearchFlag) {
       this.midIndex = Math.floor((left + right) / 2);
       this.setActiveIndexes([left, right]);
-      await this.sleep(250);
+      await this.sleep(80);
 
       if (this.array[this.midIndex] === target) {
         this.foundIndex = this.midIndex;
@@ -88,7 +90,26 @@ export class BinarySearchVisualizerComponent implements OnInit {
     this.midIndex = null;
   }
 
+  onArraySizeChange(event: Event) {
+    const nextSize = Number((event.target as HTMLInputElement).value);
+    this.arraySize = Math.max(20, Math.min(170, nextSize));
+    if (!this.isSearching) {
+      this.resetArray();
+    }
+  }
+
+  onSpeedChange(event: Event) {
+    const nextSpeed = Number((event.target as HTMLInputElement).value);
+    this.speedFactor = Math.max(0.5, Math.min(4, nextSpeed));
+    localStorage.setItem('viz-speed', String(this.speedFactor));
+  }
+
   sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    const adjustedDelay = Math.max(
+      1,
+      Math.floor(ms / (this.speedFactor > 0 ? this.speedFactor : 1))
+    );
+    return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
+

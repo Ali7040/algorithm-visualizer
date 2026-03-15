@@ -12,6 +12,8 @@ export class HeapSortVisualizerComponent implements OnInit {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
   isSorting = false;
+  arraySize = 90;
+  speedFactor = Number(localStorage.getItem('viz-speed') ?? '1');
 
   ngOnInit() {
     this.resetArray();
@@ -19,11 +21,25 @@ export class HeapSortVisualizerComponent implements OnInit {
 
   resetArray() {
     this.array = Array.from(
-      { length: 100 },
+      { length: this.arraySize },
       () => Math.floor(Math.random() * 400) + 20
     );
     this.clearActiveIndexes();
     this.isSorting = false;
+  }
+
+  onArraySizeChange(event: Event) {
+    const nextSize = Number((event.target as HTMLInputElement).value);
+    this.arraySize = Math.max(20, Math.min(170, nextSize));
+    if (!this.isSorting) {
+      this.resetArray();
+    }
+  }
+
+  onSpeedChange(event: Event) {
+    const nextSpeed = Number((event.target as HTMLInputElement).value);
+    this.speedFactor = Math.max(0.5, Math.min(4, nextSpeed));
+    localStorage.setItem('viz-speed', String(this.speedFactor));
   }
 
   async heapSort(): Promise<void> {
@@ -37,7 +53,7 @@ export class HeapSortVisualizerComponent implements OnInit {
     for (let i = n - 1; i > 0 && this.isSorting; i--) {
       this.setActiveIndexes([0, i]);
       [this.array[0], this.array[i]] = [this.array[i], this.array[0]];
-      await this.sleep(100); // Delay to show the swap animation
+      await this.sleep(20); // Delay to show the swap animation
       await this.heapify(i, 0);
       this.clearActiveIndexes();
     }
@@ -66,7 +82,7 @@ export class HeapSortVisualizerComponent implements OnInit {
         this.array[largest],
         this.array[i],
       ];
-      await this.sleep(100); // Delay to show the heapify step
+      await this.sleep(20); // Delay to show the heapify step
       await this.heapify(n, largest);
       this.clearActiveIndexes();
     }
@@ -85,6 +101,11 @@ export class HeapSortVisualizerComponent implements OnInit {
   }
 
   sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    const adjustedDelay = Math.max(
+      1,
+      Math.floor(ms / (this.speedFactor > 0 ? this.speedFactor : 1))
+    );
+    return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
+

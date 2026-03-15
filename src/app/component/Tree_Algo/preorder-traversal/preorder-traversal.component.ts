@@ -49,7 +49,7 @@ export class PreorderTraversalComponent {
 
     // Animate the current node
     this.animateNode(root.value);
-    await this.sleep(500);
+    await this.sleep(180);
 
     // Traverse the left subtree
     await this.preorderTraversal(root.left);
@@ -60,7 +60,7 @@ export class PreorderTraversalComponent {
 
   async animateNode(value: number) {
     this.activeNode = value;
-    await this.sleep(500);
+    await this.sleep(180);
     this.activeNode = null;
   }
 
@@ -70,6 +70,9 @@ export class PreorderTraversalComponent {
   }
 
   sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    const speed = Number(localStorage.getItem('viz-speed') ?? '1');
+    const adjustedDelay = Math.max(1, Math.floor(ms / (speed > 0 ? speed : 1)));
+    return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
+

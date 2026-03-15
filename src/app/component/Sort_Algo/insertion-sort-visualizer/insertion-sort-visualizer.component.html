@@ -15,20 +15,47 @@
       </ng-container>
     </div>
 
-    <div class="controls">
-      <button (click)="InsertionSort()" class="control-button">
-        Start Sorting
-      </button>
-      <button (click)="resetArray()" class="control-button">
-        Generate New Array
-      </button>
-      <button
-        (click)="stopSorting()"
-        class="control-button"
-        [disabled]="!isSorting"
-      >
-        Stop Sorting
-      </button>
+    <div class="controls-panel">
+      <div class="controls-row">
+        <button (click)="InsertionSort()" class="control-button">
+          Start Sorting
+        </button>
+        <button (click)="resetArray()" class="control-button">
+          Generate New Array
+        </button>
+        <button
+          (click)="stopSorting()"
+          class="control-button"
+          [disabled]="!isSorting"
+        >
+          Stop Sorting
+        </button>
+      </div>
+      <div class="controls-row controls-row-sliders">
+        <label class="control-field">
+          <span class="control-field-head"><span>Speed</span><span>{{ speedFactor }}x</span></span>
+          <input
+            type="range"
+            min="0.5"
+            max="4"
+            step="0.5"
+            [value]="speedFactor"
+            (input)="onSpeedChange($event)"
+          />
+        </label>
+        <label class="control-field">
+          <span class="control-field-head"><span>Array Size</span><span>{{ arraySize }}</span></span>
+          <input
+            type="range"
+            min="20"
+            max="170"
+            step="5"
+            [value]="arraySize"
+            [disabled]="isSorting"
+            (input)="onArraySizeChange($event)"
+          />
+        </label>
+      </div>
     </div>
   </div>
 </div>

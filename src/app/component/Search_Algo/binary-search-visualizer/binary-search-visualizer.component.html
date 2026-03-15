@@ -21,26 +21,43 @@
     </div>
 
     <!-- Action Buttons -->
-    <div class="m-1">
-      <button
-        (click)="startBinarySearch()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
-      >
-        Start Binary Search
-      </button>
-      <button
-        (click)="resetArray()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
-      >
-        Generate New Array
-      </button>
-      <button
-        *ngIf="isSearching"
-        (click)="cancelSearch()"
-        class="border rounded-lg border-gray-700 p-1 m-1"
-      >
-        Cancel Search
-      </button>
+    <div class="controls-panel">
+      <div class="controls-row">
+        <button (click)="startBinarySearch()" [disabled]="isSearching">
+          Start Binary Search
+        </button>
+        <button (click)="resetArray()" [disabled]="isSearching">
+          Generate New Array
+        </button>
+        <button *ngIf="isSearching" (click)="cancelSearch()">
+          Cancel Search
+        </button>
+      </div>
+      <div class="controls-row controls-row-sliders">
+        <label class="control-field">
+          <span class="control-field-head"><span>Speed</span><span>{{ speedFactor }}x</span></span>
+          <input
+            type="range"
+            min="0.5"
+            max="4"
+            step="0.5"
+            [value]="speedFactor"
+            (input)="onSpeedChange($event)"
+          />
+        </label>
+        <label class="control-field">
+          <span class="control-field-head"><span>Array Size</span><span>{{ arraySize }}</span></span>
+          <input
+            type="range"
+            min="20"
+            max="170"
+            step="5"
+            [value]="arraySize"
+            [disabled]="isSearching"
+            (input)="onArraySizeChange($event)"
+          />
+        </label>
+      </div>
     </div>
 
     <!-- Search Information -->

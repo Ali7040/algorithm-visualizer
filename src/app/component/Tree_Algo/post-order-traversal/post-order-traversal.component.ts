@@ -55,7 +55,8 @@ export class PostOrderTraversalComponent {
 
     // Animate the current node
     this.animateNode(root.value);
-    await this.sleep(500);
+    await this.sleep(180);
+    this.activeNode = null;
   }
 
   animateNode(value: number) {
@@ -63,6 +64,9 @@ export class PostOrderTraversalComponent {
   }
 
   sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    const speed = Number(localStorage.getItem('viz-speed') ?? '1');
+    const adjustedDelay = Math.max(1, Math.floor(ms / (speed > 0 ? speed : 1)));
+    return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
+
