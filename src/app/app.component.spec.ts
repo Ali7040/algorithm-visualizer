@@ -1,10 +1,15 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
+    localStorage.removeItem('hero-dismissed');
+
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter([]), provideNoopAnimations()],
     }).compileComponents();
   });
 
@@ -14,16 +19,23 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'algorithm-visualizer' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('algorithm-visualizer');
-  });
-
-  it('should render title', () => {
+  it('should render the navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, algorithm-visualizer');
+    expect(compiled.querySelector('app-navbar')).toBeTruthy();
+  });
+
+  it('should hide the hero card once dismissed', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.hero-card')).toBeTruthy();
+
+    fixture.componentInstance.dismissHero();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('.hero-card')).toBeNull();
+    expect(localStorage.getItem('hero-dismissed')).toBe('true');
   });
 });
