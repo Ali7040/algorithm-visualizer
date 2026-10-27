@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TreeNode } from '../../../model/tree.model';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './preorder-traversal.component.html',
   styleUrl: './preorder-traversal.component.scss',
 })
-export class PreorderTraversalComponent {
+export class PreorderTraversalComponent implements OnInit {
   treeNodes: TreeNode[] = [];
   activeNode: number | null = null;
 

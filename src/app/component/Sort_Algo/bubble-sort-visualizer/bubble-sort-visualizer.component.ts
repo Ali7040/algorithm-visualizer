@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bubble-sort-visualizer',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './bubble-sort-visualizer.component.html',
   styleUrls: ['./bubble-sort-visualizer.component.scss'],
 })
-export class BubbleSortVisualizerComponent {
+export class BubbleSortVisualizerComponent implements OnInit {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
   isSorting: boolean = false; // Flag to track sorting state

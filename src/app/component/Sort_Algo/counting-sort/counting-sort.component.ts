@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-counting-sort',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './counting-sort.component.html',
   styleUrl: './counting-sort.component.scss',
 })
-export class CountingSortComponent {
+export class CountingSortComponent implements OnInit {
   array: number[] = [];
   countArray: number[] = [];
   sortedArray: number[] = [];
@@ -38,7 +38,7 @@ export class CountingSortComponent {
     this.countArray = new Array(max + 1).fill(0);
 
     // Step 2: Count occurrences of each element
-    for (let num of this.array) {
+    for (const num of this.array) {
       if (!this.isSorting) return;
       this.countArray[num]++;
       await this.updateActiveIndexes([num]);

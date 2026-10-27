@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TreeNode } from '../../../model/tree.model';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './in-order-traversal.component.html',
   styleUrl: './in-order-traversal.component.scss',
 })
-export class InOrderTraversalComponent {
+export class InOrderTraversalComponent implements OnInit {
   treeNodes: TreeNode[] = [];
   rootNode: TreeNode | null = null; // Store root node
   activeNode: number | null = null;

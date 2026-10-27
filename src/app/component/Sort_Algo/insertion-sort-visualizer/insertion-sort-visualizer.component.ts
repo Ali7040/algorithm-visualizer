@@ -34,7 +34,7 @@ export class InsertionSortVisualizerComponent implements OnInit {
 
     // Insertion Sort Algorithm
     for (let i = 1; i < this.array.length && this.isSorting; i++) {
-      let key = this.array[i];
+      const key = this.array[i];
       let j = i - 1;
       this.setActiveIndexes([i, j]); // Set active indexes for color change
 
