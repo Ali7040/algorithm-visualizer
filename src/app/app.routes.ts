@@ -92,4 +92,5 @@ export const routes: Routes = [
         './component/Sort_Algo/counting-sort/counting-sort.component'
       ).then((m) => m.CountingSortComponent),
   },
+  { path: '**', redirectTo: '' },
 ];
