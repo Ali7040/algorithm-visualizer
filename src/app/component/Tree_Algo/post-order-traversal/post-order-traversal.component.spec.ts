@@ -8,10 +8,9 @@ describe('PostOrderTraversalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PostOrderTraversalComponent]
-    })
-    .compileComponents();
-    
+      imports: [PostOrderTraversalComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PostOrderTraversalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -16,7 +16,9 @@
     </div>
     <div class="controls-panel">
       <div class="controls-row">
-        <button (click)="heapSort()" [disabled]="isSorting">Start Sorting</button>
+        <button (click)="heapSort()" [disabled]="isSorting">
+          Start Sorting
+        </button>
         <button (click)="resetArray()">Generate New Array</button>
         <button (click)="stopSorting()" [disabled]="!isSorting">
           Stop Sorting
@@ -24,7 +26,9 @@
       </div>
       <div class="controls-row controls-row-sliders">
         <label class="control-field">
-          <span class="control-field-head"><span>Speed</span><span>{{ speedFactor }}x</span></span>
+          <span class="control-field-head"
+            ><span>Speed</span><span>{{ speedFactor }}x</span></span
+          >
           <input
             type="range"
             min="0.5"
@@ -35,7 +39,9 @@
           />
         </label>
         <label class="control-field">
-          <span class="control-field-head"><span>Array Size</span><span>{{ arraySize }}</span></span>
+          <span class="control-field-head"
+            ><span>Array Size</span><span>{{ arraySize }}</span></span
+          >
           <input
             type="range"
             min="20"

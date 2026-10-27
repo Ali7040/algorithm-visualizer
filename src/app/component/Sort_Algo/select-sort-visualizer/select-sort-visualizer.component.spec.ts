@@ -8,10 +8,9 @@ describe('SelectSortVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectSortVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [SelectSortVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SelectSortVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

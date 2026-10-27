@@ -86,4 +86,3 @@ export class SelectSortVisualizerComponent implements OnInit {
     this.isSorting = false; // Set flag to stop sorting
   }
 }
-

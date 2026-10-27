@@ -75,4 +75,3 @@ export class PreorderTraversalComponent implements OnInit {
     return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
-

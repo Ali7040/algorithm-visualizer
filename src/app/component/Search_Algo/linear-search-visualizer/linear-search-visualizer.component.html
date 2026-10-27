@@ -6,15 +6,15 @@
     </div>
 
     <div class="array-container">
-      @for(bar of array;track i;let i = $index){
-      <div
-        class="array-bar"
-        [style.height]="bar + 'px'"
-        [ngClass]="{
-          'active-bar': activeIndexes.has(i),
-          'found-bar': foundIndex === i
-        }"
-      ></div>
+      @for (bar of array; track i; let i = $index) {
+        <div
+          class="array-bar"
+          [style.height]="bar + 'px'"
+          [ngClass]="{
+            'active-bar': activeIndexes.has(i),
+            'found-bar': foundIndex === i,
+          }"
+        ></div>
       }
     </div>
 
@@ -29,7 +29,9 @@
       </div>
       <div class="controls-row controls-row-sliders">
         <label class="control-field">
-          <span class="control-field-head"><span>Speed</span><span>{{ speedFactor }}x</span></span>
+          <span class="control-field-head"
+            ><span>Speed</span><span>{{ speedFactor }}x</span></span
+          >
           <input
             type="range"
             min="0.5"
@@ -40,7 +42,9 @@
           />
         </label>
         <label class="control-field">
-          <span class="control-field-head"><span>Array Size</span><span>{{ arraySize }}</span></span>
+          <span class="control-field-head"
+            ><span>Array Size</span><span>{{ arraySize }}</span></span
+          >
           <input
             type="range"
             min="20"
@@ -54,13 +58,13 @@
       </div>
     </div>
 
-    @if(targetValue !== null){
-    <div class="m-2 flex flex-col">
-      <span class="font-bold font-mono"
-        >Searching for value: {{ targetValue }}</span
-      >
-      <span class="font-bold font-mono"> found Index: {{ foundIndex }} </span>
-    </div>
+    @if (targetValue !== null) {
+      <div class="m-2 flex flex-col">
+        <span class="font-bold font-mono"
+          >Searching for value: {{ targetValue }}</span
+        >
+        <span class="font-bold font-mono"> found Index: {{ foundIndex }} </span>
+      </div>
     }
   </div>
 </div>

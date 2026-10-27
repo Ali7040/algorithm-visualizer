@@ -69,4 +69,3 @@ export class PostOrderTraversalComponent implements OnInit {
     return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
-

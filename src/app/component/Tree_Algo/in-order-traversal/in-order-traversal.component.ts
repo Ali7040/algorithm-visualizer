@@ -77,4 +77,3 @@ export class InOrderTraversalComponent implements OnInit {
     }
   }
 }
-

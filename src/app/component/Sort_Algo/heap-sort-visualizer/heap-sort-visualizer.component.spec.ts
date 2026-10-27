@@ -8,10 +8,9 @@ describe('HeapSortVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeapSortVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [HeapSortVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(HeapSortVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -8,10 +8,9 @@ describe('LinearSearchVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinearSearchVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [LinearSearchVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LinearSearchVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

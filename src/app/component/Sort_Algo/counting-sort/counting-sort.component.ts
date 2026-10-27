@@ -103,4 +103,3 @@ export class CountingSortComponent implements OnInit {
     return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
-

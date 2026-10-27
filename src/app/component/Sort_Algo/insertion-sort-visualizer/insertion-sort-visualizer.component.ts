@@ -87,5 +87,3 @@ export class InsertionSortVisualizerComponent implements OnInit {
     return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
-
-
