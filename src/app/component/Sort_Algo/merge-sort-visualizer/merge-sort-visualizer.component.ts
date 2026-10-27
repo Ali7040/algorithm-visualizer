@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-merge-sort-visualizer',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './merge-sort-visualizer.component.html',
   styleUrls: ['./merge-sort-visualizer.component.scss'],
 })
-export class MergeSortVisualizerComponent {
+export class MergeSortVisualizerComponent implements OnInit {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
   isSorting = false; // Single flag to track sorting state
@@ -65,7 +65,7 @@ export class MergeSortVisualizerComponent {
   ): Promise<number[]> {
     if (!this.isSorting) return []; // Exit if sorting is not active
 
-    let result: number[] = [];
+    const result: number[] = [];
     let leftIndex = 0,
       rightIndex = 0;
 
@@ -137,4 +137,3 @@ export class MergeSortVisualizerComponent {
     return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
-

@@ -8,10 +8,9 @@ describe('MergeSortVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MergeSortVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [MergeSortVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MergeSortVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

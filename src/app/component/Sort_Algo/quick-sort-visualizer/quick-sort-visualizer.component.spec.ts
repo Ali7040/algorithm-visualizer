@@ -8,10 +8,9 @@ describe('QuickSortVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuickSortVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [QuickSortVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(QuickSortVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

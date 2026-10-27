@@ -8,10 +8,9 @@ describe('CountingSortComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CountingSortComponent]
-    })
-    .compileComponents();
-    
+      imports: [CountingSortComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CountingSortComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

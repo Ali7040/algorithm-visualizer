@@ -84,4 +84,3 @@ export class LinearSearchVisualizerComponent implements OnInit {
     return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
-
