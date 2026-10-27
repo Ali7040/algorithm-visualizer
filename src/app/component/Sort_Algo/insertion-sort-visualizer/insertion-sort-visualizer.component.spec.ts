@@ -8,10 +8,9 @@ describe('InsertionSortVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InsertionSortVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [InsertionSortVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(InsertionSortVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

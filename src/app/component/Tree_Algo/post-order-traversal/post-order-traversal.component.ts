@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TreeNode } from '../../../model/tree.model';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './post-order-traversal.component.html',
   styleUrl: './post-order-traversal.component.scss',
 })
-export class PostOrderTraversalComponent {
+export class PostOrderTraversalComponent implements OnInit {
   treeNodes: TreeNode[] = [];
   activeNode: number | null = null;
 
@@ -69,4 +69,3 @@ export class PostOrderTraversalComponent {
     return new Promise((resolve) => setTimeout(resolve, adjustedDelay));
   }
 }
-

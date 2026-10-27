@@ -8,10 +8,9 @@ describe('BinarySearchVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BinarySearchVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [BinarySearchVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(BinarySearchVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

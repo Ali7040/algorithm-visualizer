@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-select-sort-visualizer',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './select-sort-visualizer.component.html',
   styleUrls: ['./select-sort-visualizer.component.scss'],
 })
-export class SelectSortVisualizerComponent {
+export class SelectSortVisualizerComponent implements OnInit {
   array: number[] = [];
   activeIndexes: Set<number> = new Set();
   isSorting = false; // flag to track sorting state
@@ -86,4 +86,3 @@ export class SelectSortVisualizerComponent {
     this.isSorting = false; // Set flag to stop sorting
   }
 }
-

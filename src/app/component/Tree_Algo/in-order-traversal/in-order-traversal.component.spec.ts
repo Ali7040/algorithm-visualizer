@@ -8,10 +8,9 @@ describe('InOrderTraversalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InOrderTraversalComponent]
-    })
-    .compileComponents();
-    
+      imports: [InOrderTraversalComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(InOrderTraversalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

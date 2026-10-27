@@ -8,10 +8,9 @@ describe('BubbleSortVisualizerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BubbleSortVisualizerComponent]
-    })
-    .compileComponents();
-    
+      imports: [BubbleSortVisualizerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(BubbleSortVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -19,7 +19,9 @@
               <li>
                 <div
                   class="node"
-                  [ngClass]="{ 'active-node': activeNode === treeNodes[1].value }"
+                  [ngClass]="{
+                    'active-node': activeNode === treeNodes[1].value,
+                  }"
                 >
                   {{ treeNodes[1].value }}
                 </div>
@@ -28,7 +30,7 @@
                     <div
                       class="node"
                       [ngClass]="{
-                        'active-node': activeNode === treeNodes[3].value
+                        'active-node': activeNode === treeNodes[3].value,
                       }"
                     >
                       {{ treeNodes[3].value }}
@@ -38,7 +40,7 @@
                     <div
                       class="node"
                       [ngClass]="{
-                        'active-node': activeNode === treeNodes[4].value
+                        'active-node': activeNode === treeNodes[4].value,
                       }"
                     >
                       {{ treeNodes[4].value }}
@@ -49,7 +51,9 @@
               <li>
                 <div
                   class="node"
-                  [ngClass]="{ 'active-node': activeNode === treeNodes[2].value }"
+                  [ngClass]="{
+                    'active-node': activeNode === treeNodes[2].value,
+                  }"
                 >
                   {{ treeNodes[2].value }}
                 </div>
@@ -58,7 +62,7 @@
                     <div
                       class="node"
                       [ngClass]="{
-                        'active-node': activeNode === treeNodes[5].value
+                        'active-node': activeNode === treeNodes[5].value,
                       }"
                     >
                       {{ treeNodes[5].value }}
@@ -68,7 +72,7 @@
                     <div
                       class="node"
                       [ngClass]="{
-                        'active-node': activeNode === treeNodes[6].value
+                        'active-node': activeNode === treeNodes[6].value,
                       }"
                     >
                       {{ treeNodes[6].value }}
@@ -90,4 +94,3 @@
     </div>
   </div>
 </div>
-
