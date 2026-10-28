@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-binary-search-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './binary-search-visualizer.component.html',
   styleUrl: './binary-search-visualizer.component.scss',

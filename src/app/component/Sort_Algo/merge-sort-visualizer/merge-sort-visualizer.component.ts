@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-merge-sort-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './merge-sort-visualizer.component.html',
   styleUrls: ['./merge-sort-visualizer.component.scss'],

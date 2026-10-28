@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-quick-sort-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './quick-sort-visualizer.component.html',
   styleUrls: ['./quick-sort-visualizer.component.scss'],

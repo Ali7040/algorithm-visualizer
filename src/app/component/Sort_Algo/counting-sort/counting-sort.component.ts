@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-counting-sort',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './counting-sort.component.html',
   styleUrl: './counting-sort.component.scss',

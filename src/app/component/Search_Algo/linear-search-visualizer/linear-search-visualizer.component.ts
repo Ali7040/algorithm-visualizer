@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-linear-search-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './linear-search-visualizer.component.html',
   styleUrl: './linear-search-visualizer.component.scss',

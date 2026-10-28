@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-insertion-sort-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './insertion-sort-visualizer.component.html',
   styleUrls: ['./insertion-sort-visualizer.component.scss'],

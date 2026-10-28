@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-preorder-traversal',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './preorder-traversal.component.html',
   styleUrl: './preorder-traversal.component.scss',

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bubble-sort-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './bubble-sort-visualizer.component.html',
   styleUrls: ['./bubble-sort-visualizer.component.scss'],

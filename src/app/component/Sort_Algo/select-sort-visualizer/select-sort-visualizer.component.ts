@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-select-sort-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './select-sort-visualizer.component.html',
   styleUrls: ['./select-sort-visualizer.component.scss'],

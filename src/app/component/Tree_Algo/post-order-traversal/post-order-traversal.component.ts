@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-post-order-traversal',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './post-order-traversal.component.html',
   styleUrl: './post-order-traversal.component.scss',

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-heap-sort-visualizer',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './heap-sort-visualizer.component.html',
   styleUrl: './heap-sort-visualizer.component.scss',

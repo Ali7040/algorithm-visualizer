@@ -17,7 +17,6 @@ interface NavMenu {
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   imports: [RouterOutlet, RouterModule, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
